@@ -44,7 +44,6 @@ export default function Login() {
           </button>
         </p>
       </div>
-
       <form className="shadow border-gray-100 border rounded-lg px-8 py-6 mt-5">
         <div>
           <label className="block text-gray-500 text-sm font-medium">
@@ -76,9 +75,10 @@ export default function Login() {
           type="button"
           onClick={() => submit()}
         >
-          {loading ? "cargando" : "Ingresar"}
+          {loading ? "Cargando" : "Ingresar"}
         </button>
       </form>
+      <p className="mt-2 text-gray-500">usuario: jean   password: jean</p>
     </div>
   );
 }

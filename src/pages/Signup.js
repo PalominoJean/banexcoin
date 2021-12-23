@@ -5,7 +5,6 @@ import logo from "../assets/images/pngegg.png";
 export default function Signup() {
   let navigate = useNavigate();
   const goToLogin = () => {
-    console.log("login");
     navigate("/login");
   };
   return (

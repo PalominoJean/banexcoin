@@ -4,7 +4,7 @@ import { faPlus, faFilter } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
   return (
-    <div className="flex justify-between">
+    <div className="block sm:flex justify-between">
       <p className="text-xl font-medium text-gray-700">Usuarios</p>
       <div>
         <button className="px-4 py-2 rounded-md text-sm border-2 mr-2 ">

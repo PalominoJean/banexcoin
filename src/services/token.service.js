@@ -1,5 +1,4 @@
 import LocalStorageService from "./localStorage.service";
-// import jwt_decode from "jwt-decode";
 
 const TokenService = {
   get() {
@@ -15,11 +14,6 @@ const TokenService = {
   },
   clear() {
     LocalStorageService.clearItem("token");
-  },
-  getDecoded() {
-    const _tokenName = LocalStorageService.getItem("token");
-    // return jwt_decode(_tokenName);
-    return "";
   },
   exist() {
     return LocalStorageService.existItem("token");
