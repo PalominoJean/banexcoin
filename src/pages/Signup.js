@@ -17,8 +17,7 @@ const schema = yup.object().shape({
   phone: yup
     .string()
     // .matches(/^[0-9\- ]{8,14}$/, "Por favor ingrese un telefono valido")
-    .matches(new RegExp("[0-9]{9}"), "holiiiii")
-    .required("Por favor ingresa tu telefono"),
+    .matches(new RegExp("[0-9]{9}"), "Por favor ingresa un telefono valido"),
 });
 
 const variants = {
