@@ -9,10 +9,16 @@ import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
 const schema = yup.object().shape({
-  email: yup.string().required("Por favor ingresa tu usuario"),
+  email: yup
+    .string()
+    .email("Por favor introduzca un email valido")
+    .required("Por favor ingresa tu email"),
   password: yup.string().required("Por favor ingresa tu contrasena"),
-  phone: yup.string().required("Por favor ingresa tu telefono"),
-
+  phone: yup
+    .string()
+    // .matches(/^[0-9\- ]{8,14}$/, "Por favor ingrese un telefono valido")
+    .matches(new RegExp("[0-9]{9}"), "holiiiii")
+    .required("Por favor ingresa tu telefono"),
 });
 
 const variants = {
@@ -47,7 +53,7 @@ export default function Signup() {
     navigate("/login");
   };
   return (
-    <div
+    <motion.div
       className="w-11/12 sm:w-2/3 md:w-7/12 lg:w-1/2 xl:w-1/3 2xl:w-1/4"
       initial="hiddenForm"
       animate="visibleForm"
@@ -147,6 +153,6 @@ export default function Signup() {
           )}
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 }
