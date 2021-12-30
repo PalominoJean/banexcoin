@@ -8,6 +8,11 @@ import * as yup from "yup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
+import {
+  faFacebook,
+  faGoogle,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 const schema = yup.object().shape({
   username: yup.string().required("Por favor ingresa tu usuario"),
@@ -15,11 +20,13 @@ const schema = yup.object().shape({
 });
 
 const variants = {
-  hiddenForm: { scale: 0.5, opacity: 0 },
-  visibleForm: { scale: 1, opacity: 1 },
+  hiddenForm: { opacity: 0 },
+  visibleForm: { opacity: 1 },
 
   hiddenErrorMsg: { y: -5, opacity: 0 },
   visibleErrorMsg: { y: 0, opacity: 1 },
+
+  transition: { ease: "easeOut", duration: 3 },
 };
 
 export default function Login() {
@@ -55,6 +62,8 @@ export default function Login() {
       className="w-11/12 sm:w-2/3 md:w-7/12 lg:w-1/2 xl:w-1/3 2xl:w-1/4"
       initial="hiddenForm"
       animate="visibleForm"
+      transition="transition"
+      exit="exitForm"
       variants={variants}
     >
       <div className="text-center ">
@@ -89,6 +98,7 @@ export default function Login() {
             <motion.p
               initial="hiddenErrorMsg"
               animate="visibleErrorMsg"
+              transition="transition"
               variants={variants}
               className="text-sm font-medium mt-1 text-red-500"
             >
@@ -146,7 +156,22 @@ export default function Login() {
             "Ingresar"
           )}
         </button>
+        <p className="text-gray-500 mt-5 flex items-center text-center before:flex-1 before:border-b before:border-b-gray-500 before:mr-2 before:content-[' '] after:flex-1 after:border-b after:border-b-gray-500 after:ml-2 after:content-[' '] ">
+          O ingresa con
+        </p>
+        <div className="flex justify-between gap-3 mt-5">
+          <button type="button" className="border block w-4/12 text-gray-500 hover:bg-gray-100 transition rounded-md p-2">
+            <FontAwesomeIcon icon={faGoogle} className=" mr-1" />
+          </button>
+          <button type="button" className="border block w-4/12 text-gray-500 hover:bg-gray-100 transition rounded-md p-2">
+            <FontAwesomeIcon icon={faTwitter} className=" mr-1" />
+          </button>
+          <button type="button" className="border block w-4/12 text-gray-500 hover:bg-gray-100 transition rounded-md p-2">
+            <FontAwesomeIcon icon={faFacebook} className=" mr-1" />
+          </button>
+        </div>
       </form>
+
       <p className="mt-2 text-gray-500">usuario: jean password: jean</p>
     </motion.div>
   );

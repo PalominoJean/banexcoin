@@ -16,14 +16,12 @@ const schema = yup.object().shape({
   password: yup.string().required("Por favor ingresa tu contrasena"),
   phone: yup
     .string()
-    // .matches(/^[0-9\- ]{8,14}$/, "Por favor ingrese un telefono valido")
     .matches(new RegExp("[0-9]{9}"), "Por favor ingresa un telefono valido"),
 });
 
 const variants = {
-  hiddenForm: { scale: 0.5, opacity: 0 },
-  visibleForm: { scale: 1, opacity: 1 },
-
+  hiddenForm: { opacity: 0 },
+  visibleForm: { opacity: 1 },
   hiddenErrorMsg: { y: -5, opacity: 0 },
   visibleErrorMsg: { y: 0, opacity: 1 },
 };
@@ -56,6 +54,7 @@ export default function Signup() {
       className="w-11/12 sm:w-2/3 md:w-7/12 lg:w-1/2 xl:w-1/3 2xl:w-1/4"
       initial="hiddenForm"
       animate="visibleForm"
+      exit="exitForm"
       variants={variants}
     >
       <div className="text-center">
