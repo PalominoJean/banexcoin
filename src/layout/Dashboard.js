@@ -15,7 +15,7 @@ export default function Dashboard() {
     <MenuContext.Provider value={value}>
       <div className="h-full flex">
         <div
-          className={`${isOpen ? "block" : "hidden"} w-72 bg-indigo-600 h-full`}
+          className={`${isOpen ? "block" : "hidden"} w-72 bg-neutral-700 h-full`}
         >
           <SidebarApp />
         </div>

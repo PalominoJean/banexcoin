@@ -4,12 +4,11 @@ import logoBanexCoin from "../assets/images/logo-banexcoin-word.svg";
 export default function SidebarApp() {
   return (
     <div className="h-full px-4 py-10 text-white">
-      <div className="flex justify-center">
-        <img src={logoBanexCoin} alt="coin" className="w-20" />
+      <div className="flex justify-center mt-5">
+        <img src={logoBanexCoin} alt="coin" className="w-44" />
       </div>
-      <p className="font-bold text-center mt-2">BanexCoin</p>
-      <ul className="text-white mt-5">
-        <li className="bg-indigo-800 px-3 py-2 rounded-md">Usuarios</li>
+      <ul className="text-white mt-14">
+        <li className="bg-orange-500 px-3 py-2 rounded-md">Usuarios</li>
         <li className="px-3 py-2 rounded-md mt-1">Monedas</li>
         <li className="px-3 py-2 rounded-md mt-1">Reportes</li>
       </ul>
