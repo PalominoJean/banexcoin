@@ -31,7 +31,7 @@ export default function Owners() {
       <Header></Header>
       <div className="mt-5">
         {owners.map((person) => (
-          <div className="shadow border-gray-100 border rounded-lg p-5 m-2 block lg:flex">
+          <div key={person.id} className="shadow border-gray-100 border rounded-lg p-5 m-2 block lg:flex">
             <div className="flex items-center lg:w-1/2">
               <div className="flex-shrink-0 h-10 w-10">
                 <img

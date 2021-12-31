@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { PopulateService } from "../services/auth.service";
+import { PopulateService } from "./../services/auth.service";
 import logoBanexCoin from "../assets/images/logo-banexcoin-letter-yellow.png";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -13,6 +13,8 @@ import {
   faGoogle,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import Divider from "../components/Divider";
+import Button from "../components/Button";
 
 const schema = yup.object().shape({
   username: yup.string().required("Por favor ingresa tu usuario"),
@@ -28,6 +30,41 @@ const variants = {
 
   transition: { ease: "easeOut", duration: 3 },
 };
+
+// function Input({ errors, register, property, value }) {
+//   useState(() => {
+//     console.log("en staet");
+//   });
+//   console.log(errors, register, property, value);
+//   return (
+//     <div>
+//       <label className="block text-gray-800">{value}</label>
+//       <input
+//         className={`border rounded-md py-2 px-4 w-full mt-1 ${
+//           errors
+//             ? errors[property]?.message
+//               ? "border-red-500"
+//               : "border-gray-200"
+//             : ""
+//         }`}
+//         {...register(property, { required: true })}
+//       />
+//       {errors
+//         ? errors[property]?.message && (
+//             <motion.p
+//               initial="hiddenErrorMsg"
+//               animate="visibleErrorMsg"
+//               transition="transition"
+//               variants={variants}
+//               className="text-sm font-medium mt-1 text-red-500"
+//             >
+//               {errors[property]?.message}
+//             </motion.p>
+//           )
+//         : ""}
+//     </div>
+//   );
+// }
 
 export default function Login() {
   let navigate = useNavigate();
@@ -73,13 +110,9 @@ export default function Login() {
         <p className="text-4xl font-bold mt-3">Ingresa a tu cuenta</p>
         <p className="mt-1">
           <span className="text-gray-500">O </span>
-          <button
-            className="text-orange-500 hover:text-orange-600 transition"
-            type="button"
-            onClick={() => goToSignup()}
-          >
+          <Button form="text" onClick={() => goToSignup()}>
             registrate gratis
-          </button>
+          </Button>
         </p>
       </div>
       <form
@@ -106,6 +139,12 @@ export default function Login() {
             </motion.p>
           )}
         </div>
+        {/* <Input
+          error={errors}
+          register={register}
+          property="username"
+          value="Usuario"
+        /> */}
         <div className="mt-5">
           <label className="block text-gray-800">Contrasena</label>
           <input
@@ -127,25 +166,19 @@ export default function Login() {
           )}
         </div>
         <div className="mt-5 text-right flex items-center justify-between">
-          <div className="form-group form-check">
+          <div>
             <input
               type="checkbox"
-              className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-orange-600 checked:border-orange-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+              className="appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-orange-600 checked:border-orange-600 focus:outline-none transition duration-200 mt-1 align-top float-left mr-2 cursor-pointer"
             />
-            <label className="form-check-label inline-block text-gray-800">
-              Recordarme
-            </label>
+            <label className="inline-block text-gray-800">Recordarme</label>
           </div>
-          <button
-            type="button"
-            className="text-orange-500 hover:text-orange-600 transition"
-          >
-            Olvidaste tu contrasena?
-          </button>
+          <Button form="text">Olvidaste tu contrasena?</Button>
         </div>
-        <button
-          className="bg-orange-500 hover:bg-orange-600 transition w-full mt-5 p-2 rounded-md text-white flex justify-center items-center"
+        <Button
+          form="primary"
           type="submit"
+          styles="mt-5 w-full flex justify-center items-center"
         >
           {loading ? (
             <span>
@@ -155,20 +188,18 @@ export default function Login() {
           ) : (
             "Ingresar"
           )}
-        </button>
-        <p className="text-gray-500 mt-5 flex items-center text-center before:flex-1 before:border-b before:border-b-gray-500 before:mr-2 before:content-[' '] after:flex-1 after:border-b after:border-b-gray-500 after:ml-2 after:content-[' '] ">
-          O ingresa con
-        </p>
+        </Button>
+        <Divider text="O ingresa con" />
         <div className="flex justify-between gap-3 mt-5">
-          <button type="button" className="border block w-4/12 text-gray-500 hover:bg-gray-100 transition rounded-md p-2">
-            <FontAwesomeIcon icon={faGoogle} className=" mr-1" />
-          </button>
-          <button type="button" className="border block w-4/12 text-gray-500 hover:bg-gray-100 transition rounded-md p-2">
-            <FontAwesomeIcon icon={faTwitter} className=" mr-1" />
-          </button>
-          <button type="button" className="border block w-4/12 text-gray-500 hover:bg-gray-100 transition rounded-md p-2">
-            <FontAwesomeIcon icon={faFacebook} className=" mr-1" />
-          </button>
+          <Button form="secondary" styles="block w-4/12">
+            <FontAwesomeIcon icon={faGoogle} className="mr-1" />
+          </Button>
+          <Button form="secondary" styles="block w-4/12">
+            <FontAwesomeIcon icon={faTwitter} className="mr-1" />
+          </Button>
+          <Button form="secondary" styles="block w-4/12">
+            <FontAwesomeIcon icon={faFacebook} className="mr-1" />
+          </Button>
         </div>
       </form>
 

@@ -7,14 +7,14 @@ export default function Header() {
     <div className="block sm:flex justify-between">
       <p className="text-xl font-medium text-gray-700">Usuarios</p>
       <div>
-        <button className="px-4 py-2 rounded-md text-sm border-2 mr-2 ">
+        <button className="px-4 py-2 rounded-md text-sm border-2 mr-2 hover:bg-gray-200 transition">
           <span className="mr-2">
             <FontAwesomeIcon icon={faFilter} />
           </span>
           <span className="hidden md:inline mr-1">Mostrar</span>
           filtro
         </button>
-        <button className="px-4 py-2 rounded-md text-sm border-2 border-indigo-600 text-white bg-indigo-600">
+        <button className="px-4 py-2 rounded-md text-sm border-2 border-orange-500 text-white bg-orange-500 hover:bg-orange-600 transition">
           <span className="mr-2">
             <FontAwesomeIcon icon={faPlus} />
           </span>

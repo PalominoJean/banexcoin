@@ -26,7 +26,7 @@ export default function HeaderApp() {
       <div className="flex">
         <img className="w-11 mr-5" src={avatar} alt="user" />
         <button
-          className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm"
+          className="bg-orange-500 hover:bg-orange-600  transition text-white px-4 py-2 rounded-md text-sm"
           onClick={() => logout()}
         >
           Salir
